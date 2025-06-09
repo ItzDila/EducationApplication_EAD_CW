@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package educationalapplication_ead_cw;
-
+package educationalapplication_ead_cw.GUIs;
+import educationalapplication_ead_cw.DB.DBconnector;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
@@ -129,7 +129,6 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void passTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxtActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_passTxtActionPerformed
 
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
@@ -161,7 +160,7 @@ public class Login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Entered Username or Password is Incorrect ", "Login Error", JOptionPane.YES_OPTION);
                 }
             } catch (Exception e) {
-                System.out.println("Error Occured :" + e);
+                JOptionPane.showMessageDialog(null,"Error Occured :" + e);
             }
         }
     }//GEN-LAST:event_loginBtnActionPerformed
