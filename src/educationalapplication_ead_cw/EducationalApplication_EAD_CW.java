@@ -4,6 +4,8 @@
  */
 package educationalapplication_ead_cw;
 
+import educationalapplication_ead_cw.GUIs.Login;
+
 /**
  *
  * @author ktime
@@ -14,9 +16,13 @@ public class EducationalApplication_EAD_CW {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         
 
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Login().setVisible(true);
+            }
+        });
 
     }
-    
+
 }
