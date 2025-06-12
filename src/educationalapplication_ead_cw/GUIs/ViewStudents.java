@@ -4,7 +4,7 @@
  */
 package educationalapplication_ead_cw.GUIs;
 
-import educationalapplication_ead_cw.DB.*;
+import educationalapplication_ead_cw.Db.*;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
