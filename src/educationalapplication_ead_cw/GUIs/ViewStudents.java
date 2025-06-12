@@ -352,7 +352,7 @@ public class ViewStudents extends javax.swing.JFrame {
 
         if (stuid.length() >= 2) {
             try {
-                DBconnector dbcStudent = new DBconnector();
+                DBcon dbcStudent = new DBcon();
                 dbcStudent.OpenConnection();
                 ResultSet rs = dbcStudent.SelectData("SELECT * FROM students WHERE student_id='" + stuid + "'");
                 if (rs.next()) {
@@ -380,7 +380,7 @@ public class ViewStudents extends javax.swing.JFrame {
 
     private void studentDataFill() {
         try {
-            DBconnector dbcStudent = new DBconnector();
+            DBcon dbcStudent = new DBcon();
             dbcStudent.OpenConnection();
             ResultSet rs = dbcStudent.SelectData("SELECT*FROM students");
 
@@ -437,7 +437,7 @@ public class ViewStudents extends javax.swing.JFrame {
 
         if (stuid.length() >= 2) {
             try {
-                DBconnector dbcStudent = new DBconnector();
+                DBcon dbcStudent = new DBcon();
                 dbcStudent.OpenConnection();
                 ResultSet rs = dbcStudent.SelectData("SELECT*FROM students WHERE student_id='" + stuid + "'");
                 if (rs.next()) {

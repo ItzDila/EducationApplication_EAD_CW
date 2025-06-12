@@ -4,7 +4,7 @@
  */
 package educationalapplication_ead_cw.GUIs;
 
-import educationalapplication_ead_cw.Db.DBconnector;
+import educationalapplication_ead_cw.Db.DBcon;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
@@ -186,7 +186,7 @@ public class Login extends javax.swing.JFrame {
             } else {
                 try {
 
-                    DBconnector con = new DBconnector();
+                    DBcon con = new DBcon();
                     con.OpenConnection();
                     String Query = "SELECT* FROM userLogin WHERE username = '@1' AND password = '@2' ";
                     Query = Query.replaceAll("@1", username);

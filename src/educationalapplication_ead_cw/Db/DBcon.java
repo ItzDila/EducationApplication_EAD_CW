@@ -9,7 +9,7 @@ import java.sql.*;
  *
  * @author ktime
  */
-public class DBconnector {
+public class DBcon {
     
  String url = "jdbc:mysql://localhost/edu_db";
     String user = "root";

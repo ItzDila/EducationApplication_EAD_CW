@@ -4,7 +4,7 @@
  */
 package educationalapplication_ead_cw.GUIs;
 
-import educationalapplication_ead_cw.Db.DBconnector;
+import educationalapplication_ead_cw.Db.DBcon;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -134,7 +134,7 @@ private void studentDataFill() {
             if (srchStu.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Enter Student ID to Continue");
             } else {
-                DBconnector dbcStudent = new DBconnector();
+                DBcon dbcStudent = new DBcon();
                 dbcStudent.OpenConnection();
                 ResultSet rs = dbcStudent.SelectData("SELECT s.student_id, s.name AS student_name, s.phone_number, s.gender, c.course_id, c.course_name, m.subject_id, m.mark FROM students s INNER JOIN courses c ON s.course_id = c.course_id INNER JOIN marks m ON s.student_id = m.student_id WHERE s.student_id = '" + srchStu.getText() + "';");
 

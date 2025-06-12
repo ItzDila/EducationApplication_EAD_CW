@@ -4,7 +4,7 @@
  */
 package educationalapplication_ead_cw.GUIs;
 
-import educationalapplication_ead_cw.Db.DBconnector;
+import educationalapplication_ead_cw.Db.DBcon;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -463,7 +463,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void tableFill() {
-        DBconnector db = new DBconnector();
+        DBcon db = new DBcon();
         ResultSet usersSet = db.SelectData("SELECT * from courses");
         try {
             while (usersSet.next()) {
@@ -492,7 +492,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void dataCount() {
         try {
-            DBconnector con = new DBconnector();
+            DBcon con = new DBcon();
             con.OpenConnection();
             String Query = "SELECT (SELECT COUNT(*) FROM students) AS count1, (SELECT COUNT(*) FROM lecturers) AS count2, (SELECT COUNT(*) FROM courses) AS count3;";
             ResultSet rs = con.SelectData(Query);

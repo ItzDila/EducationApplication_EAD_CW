@@ -4,7 +4,7 @@
  */
 package educationalapplication_ead_cw.GUIs;
 
-import educationalapplication_ead_cw.Db.DBconnector;
+import educationalapplication_ead_cw.Db.DBcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -123,7 +123,7 @@ public class AddUser extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Enter all fields to add user", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             try {
-                DBconnector condb = new DBconnector();
+                DBcon condb = new DBcon();
                 condb.OpenConnection();
 
                 if (!addpas1.equals(addpass)) {
