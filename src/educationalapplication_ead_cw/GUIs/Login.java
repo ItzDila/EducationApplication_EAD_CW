@@ -175,7 +175,7 @@ public class Login extends javax.swing.JFrame {
         String username = this.userTxt1.getText();
         String password = this.passTxt1.getText();
 
-        if (username.equals("admin") || password.equals("admin123")) {
+        if (username.equals("adminTest") || password.equals("admin123")) {
             this.dispose();
             Dashboard window1 = new Dashboard(username);
             window1.setVisible(true);
@@ -197,7 +197,7 @@ public class Login extends javax.swing.JFrame {
                         Dashboard window1 = new Dashboard(username);
                         window1.setVisible(true);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Entered Username or Password is Incorrect ", "Login Error", JOptionPane.YES_OPTION);
+                        JOptionPane.showMessageDialog(null, "Entered Username or Password is Incorrect or No Registerd User", "Login Error", JOptionPane.YES_OPTION);
                     }
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Error Occured :" + e.getMessage());
