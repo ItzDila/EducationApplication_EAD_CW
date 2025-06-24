@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="dist/EducationalApplication_EAD_CW.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-beanutils-1.9.4.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-collections-3.2.2.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-collections4-4.4.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="dist/lib/itext-2.1.7.jar"/>
+	<classpathentry kind="lib" path="dist/lib/jasperreports-6.20.6.jar"/>
+	<classpathentry kind="lib" path="dist/lib/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="dist/lib/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="dist/lib/mysql-connector-j-9.3.0.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
