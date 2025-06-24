@@ -210,9 +210,7 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_closeBtn1ActionPerformed
 
-    public static void main(String args[]) {
-
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeBtn1;

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package educationalapplication_ead_cw.GUIs;
+package educationalapplication_ead_cw.GUIs.Views;
 
 import educationalapplication_ead_cw.Db.DBcon;
 import java.sql.ResultSet;
@@ -13,12 +13,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ktime
  */
-public class ViewSubjects extends javax.swing.JFrame {
+public class ViewLectures extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewSubjects
+     * Creates new form ViewLectures
      */
-    public ViewSubjects() {
+    public ViewLectures() {
         initComponents();
     }
 
@@ -30,15 +30,19 @@ public class ViewSubjects extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        SubTable = new javax.swing.JTable();
+        LecTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        subid = new javax.swing.JTextField();
+        Lecid = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        subName = new javax.swing.JTextField();
+        LecName = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        LecMail = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        LecMob = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        subCid = new javax.swing.JTextField();
+        LecSpec = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -46,6 +50,11 @@ public class ViewSubjects extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowStateListener(new java.awt.event.WindowStateListener() {
+            public void windowStateChanged(java.awt.event.WindowEvent evt) {
+                formWindowStateChanged(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -55,7 +64,7 @@ public class ViewSubjects extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 153));
 
         jLabel7.setFont(new java.awt.Font("Poppins", 3, 36)); // NOI18N
-        jLabel7.setText("Manage Subjects");
+        jLabel7.setText("Manage Lecturers");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,7 +73,7 @@ public class ViewSubjects extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(437, 437, 437))
+                .addGap(432, 432, 432))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,27 +85,24 @@ public class ViewSubjects extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 153));
 
-        SubTable.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        SubTable.setModel(new javax.swing.table.DefaultTableModel(
+        LecTable.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        LecTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Subject ID", " Name", "Course ID"
+                "Lecturer_ID", " Name", "Email", "Mobile Number", "Specialization"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(SubTable);
-        if (SubTable.getColumnModel().getColumnCount() > 0) {
-            SubTable.getColumnModel().getColumn(1).setResizable(false);
-        }
+        jScrollPane1.setViewportView(LecTable);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -118,23 +124,43 @@ public class ViewSubjects extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 102, 153));
 
         jLabel1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel1.setText("Subject Id");
+        jLabel1.setText("Lecturer ID");
 
-        subid.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        Lecid.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        Lecid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LecidActionPerformed(evt);
+            }
+        });
+        Lecid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                LecidKeyPressed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel2.setText("Subject Name");
+        jLabel2.setText("Lecturer Name");
 
-        subName.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        LecName.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel4.setText("Lecturer E-mail");
+
+        LecMail.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel5.setText("Lecturer Mobile");
+
+        LecMob.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel3.setText("Enrolled Course ID");
+        jLabel3.setText("Specialization");
 
-        subCid.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        LecSpec.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Enter Details Of Subject");
+        jLabel6.setText("Enter Details Of Lecturer");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -144,12 +170,16 @@ public class ViewSubjects extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(subCid, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LecMail, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(LecMob, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LecSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(subid, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lecid, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(subName, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LecName, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(0, 32, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -160,21 +190,29 @@ public class ViewSubjects extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(subid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Lecid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(subName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addComponent(LecName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LecMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LecMob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(subCid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
+                .addComponent(LecSpec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
 
         jButton1.setBackground(new java.awt.Color(153, 255, 153));
         jButton1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        jButton1.setText("ADD SUBJECT");
+        jButton1.setText("ADD LECTURER");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -183,7 +221,7 @@ public class ViewSubjects extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 153, 102));
         jButton2.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        jButton2.setText("UPDATE SUBJECT");
+        jButton2.setText("UPDATE LECTURER");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -192,7 +230,7 @@ public class ViewSubjects extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(255, 51, 51));
         jButton3.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        jButton3.setText("DELETE SUBJECT");
+        jButton3.setText("DELETE LECTURER");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -208,7 +246,7 @@ public class ViewSubjects extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
@@ -258,20 +296,22 @@ public class ViewSubjects extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SubDataFill() {
+    private void LecDataFill() {
         try {
             DBcon dbcLec = new DBcon();
             dbcLec.OpenConnection();
-            ResultSet rs = dbcLec.SelectData("SELECT*FROM subjects");
+            ResultSet rs = dbcLec.SelectData("SELECT*FROM lecturers");
 
             while (rs.next()) {
-                DefaultTableModel SubData = (DefaultTableModel) SubTable.getModel();
-                String sid = rs.getString("subject_id");
-                String sn = rs.getString("name");
-                String scid = rs.getString("course_id");
-                Object data[] = {sid, sn, scid};
-                SubData.addRow(data);
-                SubTable.setModel(SubData);
+                DefaultTableModel lecData = (DefaultTableModel) LecTable.getModel();
+                String lid = rs.getString("lecturer_id");
+                String ln = rs.getString("name");
+                String le = rs.getString("email");
+                String lp = rs.getString("phone");
+                String ls = rs.getString("specialization");
+                Object data[] = {lid, ln, le, lp, ls,};
+                lecData.addRow(data);
+                LecTable.setModel(lecData);
 
             }
 
@@ -280,120 +320,130 @@ public class ViewSubjects extends javax.swing.JFrame {
         }
     }
 
-    private void clearDataSub() {
-        DefaultTableModel model = (DefaultTableModel) SubTable.getModel();
+    private void clearDataLec() {
+        DefaultTableModel model = (DefaultTableModel) LecTable.getModel();
         model.setRowCount(0);
     }
 
     private void gettingData() {
-        SubTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        LecTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int selectedRow = SubTable.getSelectedRow();
+                int selectedRow = LecTable.getSelectedRow();
 
                 if (selectedRow >= 0) {
-
-                    subid.setText(SubTable.getValueAt(selectedRow, 0).toString());
-                    subName.setText(SubTable.getValueAt(selectedRow, 1).toString());
-                    subCid.setText(SubTable.getValueAt(selectedRow, 2).toString());
-
+                 
+                    Lecid.setText(LecTable.getValueAt(selectedRow, 0).toString());
+                    LecName.setText(LecTable.getValueAt(selectedRow, 1).toString());
+                    LecMail.setText(LecTable.getValueAt(selectedRow, 2).toString());
+                    LecMob.setText(LecTable.getValueAt(selectedRow, 3).toString());
+                    LecSpec.setText(LecTable.getValueAt(selectedRow, 4).toString());
                 }
             }
         });
     }
 
-    private void InsertDataSub() {
-        String subID = subid.getText();
-        String sbName = subName.getText();
 
-        if (subID.equals("") || sbName.equals("")) {
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        String lecID = Lecid.getText();
+        String lecName = LecName.getText();
+
+        if (lecID.equals("") || lecName.equals("")) {
             JOptionPane.showMessageDialog(null, "Please Fill out all fields");
             return;
         }
 
-        if (subID.length() >= 2) {
+        if (lecID.length() >= 2) {
             try {
                 DBcon dbcLec = new DBcon();
                 dbcLec.OpenConnection();
-
-                ResultSet rs = dbcLec.SelectData("SELECT * FROM subjects WHERE subject_id='" + subID + "'");
+                ResultSet rs = dbcLec.SelectData("SELECT * FROM lecturers WHERE lecturer_id='" + lecID + "'");
                 if (rs.next()) {
-                    JOptionPane.showMessageDialog(null, "Subject already exists!");
+                    JOptionPane.showMessageDialog(null, "Lecturer already exists!");
                 } else {
-                    String query = "INSERT INTO subjects (subject_id, name, course_id) VALUES ('@1','@2','@3') ";
-                    query = query.replaceAll("@1", subid.getText());
-                    query = query.replaceAll("@2", subName.getText());
-                    query = query.replaceAll("@3", subCid.getText());
+                    String query = "INSERT INTO lecturers (lecturer_id, name, email, phone, specialization) VALUES ('@1','@2','@3','@4','@5') ";
+                    query = query.replaceAll("@1", Lecid.getText());
+                    query = query.replaceAll("@2", LecName.getText());
+                    query = query.replaceAll("@3", LecMail.getText());
+                    query = query.replaceAll("@4", LecMob.getText());
+                    query = query.replaceAll("@5", LecSpec.getText());
                     dbcLec.InsertData(query);
+                    JOptionPane.showMessageDialog(null, "Lecturer Addedd Successfully");
+                    clearDataLec();
+                    LecDataFill();
 
-                    JOptionPane.showMessageDialog(null, "Subject Addedd Successfully");
-                    clearDataSub();
-                    SubDataFill();
-                    subid.setText("");
-                    subName.setText("");
-                    subCid.setText("");
                 }
             } catch (Exception e) {
                 System.out.println("Error Loading Names: " + e.getMessage());
             }
 
         }
-    }
 
-    private void deletesub() {
-        String subID = subid.getText();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-        if (subID.length() >= 2) {
-            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this subject?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+    private void deleteLecturer() {
+        String lecID = Lecid.getText();
+
+        if (lecID.length() >= 2) {
+            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this lecturer?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
 
             if (confirm == JOptionPane.YES_OPTION) {
                 try {
-                    DBcon dbcsub = new DBcon();
-                    dbcsub.OpenConnection();
+                    DBcon dbcStudent = new DBcon();
+                    dbcStudent.OpenConnection();
 
-                    String dquery = "DELETE FROM subjects WHERE subject_id = '" + subID + "'";
+                    String query = "DELETE FROM lecturers WHERE lecturer_id = '" + lecID + "'";
 
-                    dbcsub.InsertData(dquery);
+                    dbcStudent.InsertData(query); // assuming InsertData works for DELETE too
 
                     JOptionPane.showMessageDialog(null, "Lecturer Deleted Successfully");
 
-                    clearDataSub();
-                    SubDataFill();
-                    subid.setText("");
-                    subName.setText("");
-                    subCid.setText("");
+                    clearDataLec();
+                    LecDataFill();
+                    Lecid.setText("");
+                    LecName.setText("");
+                    LecMob.setText("");
+                    LecSpec.setText("");
+                    LecMail.setText("");
                 } catch (Exception e) {
-                    System.out.println("Error Deleting Subject: " + e.getMessage());
+                    System.out.println("Error Deleting Lecturer: " + e.getMessage());
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Please enter a valid Subject ID to delete.");
+            JOptionPane.showMessageDialog(null, "Please enter a valid Lecturer ID to delete.");
         }
     }
 
-    private void updateSubFill() {
-        String subID = subid.getText();
+    private void updateLecFill() {
+        String lecID = Lecid.getText();
 
-        if (subID.length() >= 2) {
+        if (lecID.length() >= 2) {
             try {
                 DBcon dbcStudent = new DBcon();
                 dbcStudent.OpenConnection();
 
-                String query = "UPDATE subjects SET "
+                String query = "UPDATE lecturers SET "
                         + "name = '@1', "
-                        + "course_id = '@2', "
-                        + "WHERE subject_id = '" + subID + "'";
+                        + "email = '@2', "
+                        + "phone = '@3', "
+                        + "specialization = '@4' "
+                        + "WHERE lecturer_id = '" + lecID + "'";
 
-                query = query.replaceAll("@1", subName.getText());
-                query = query.replaceAll("@2", subCid.getText());
+                query = query.replaceAll("@1", LecName.getText());
+                query = query.replaceAll("@2", LecMail.getText());
+                query = query.replaceAll("@3", LecMob.getText());
+                query = query.replaceAll("@4", LecSpec.getText());
 
-                dbcStudent.InsertData(query);
-                JOptionPane.showMessageDialog(null, " Subject Updated Successfully");
-                clearDataSub();
-                SubDataFill();
-                subid.setText("");
-                subName.setText("");
-                subCid.setText("");
+                dbcStudent.InsertData(query);// same thing used as data insertion
 
+                JOptionPane.showMessageDialog(null, " Lecturer Updated Successfully");
+                clearDataLec();
+                LecDataFill();
+                Lecid.setText("");
+                LecName.setText("");
+                LecMob.setText("");
+                LecSpec.setText("");
+                LecMail.setText("");
             } catch (Exception e) {
                 System.out.println("Error Updating Student: " + e.getMessage());
             }
@@ -401,77 +451,77 @@ public class ViewSubjects extends javax.swing.JFrame {
 
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        InsertDataSub();
-        clearDataSub();
-        SubDataFill();
+    private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-        updateSubFill();
-
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_formWindowStateChanged
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
-        SubDataFill();
+        LecDataFill();
         gettingData();
 
     }//GEN-LAST:event_formWindowOpened
 
+    private void LecidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LecidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LecidActionPerformed
+
+    private void LecidKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LecidKeyPressed
+        String lecID = this.Lecid.getText();
+
+        if (lecID.length() >= 2) {
+            try {
+                DBcon dbcLec = new DBcon();
+                dbcLec.OpenConnection();
+                ResultSet rs = dbcLec.SelectData("SELECT*FROM lecturers WHERE lecturer_id='" + lecID + "'");
+                if (rs.next()) {
+                    LecName.setText(rs.getString("name"));
+                    LecMail.setText(rs.getString("email"));
+                    LecMob.setText(rs.getString("phone"));
+                    LecSpec.setText(rs.getString("specialization"));
+                } else {
+                    LecName.setText("");
+                    LecMail.setText("");
+                    LecMob.setText("");
+                    LecSpec.setText("");
+                }
+
+            } catch (Exception e) {
+                System.out.println("Error Loading Names" + e.getMessage());
+            }
+        }    }//GEN-LAST:event_LecidKeyPressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        updateLecFill();
+        clearDataLec();
+        LecDataFill();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        deletesub();
+        deleteLecturer();
+        LecDataFill();
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewSubjects.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewSubjects.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewSubjects.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewSubjects.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewSubjects().setVisible(true);
-            }
-        });
-    }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable SubTable;
+    private javax.swing.JTextField LecMail;
+    private javax.swing.JTextField LecMob;
+    private javax.swing.JTextField LecName;
+    private javax.swing.JTextField LecSpec;
+    private javax.swing.JTable LecTable;
+    private javax.swing.JTextField Lecid;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -479,8 +529,5 @@ public class ViewSubjects extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField subCid;
-    private javax.swing.JTextField subName;
-    private javax.swing.JTextField subid;
     // End of variables declaration//GEN-END:variables
 }

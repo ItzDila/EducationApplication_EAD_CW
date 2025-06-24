@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package educationalapplication_ead_cw.GUIs;
+package educationalapplication_ead_cw.GUIs.Views;
 
 import educationalapplication_ead_cw.Db.DBcon;
 import java.sql.ResultSet;
@@ -464,13 +464,7 @@ public class ViewCourses extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewCourses().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField crsDirector;
